@@ -271,7 +271,7 @@ static int _hamlet_count_words(Hamlet* hamlet FOR_LOGS(, LOG_PARAMS))
 	int words_ct = 0;
 	int inword   = 0;
 
-	while (*buffer++ != '\0')
+	while (*buffer != '\0')
 	{	
 		if (isalpha(*buffer) && !inword)
 		{
@@ -284,6 +284,8 @@ static int _hamlet_count_words(Hamlet* hamlet FOR_LOGS(, LOG_PARAMS))
 			words_ct++; 
 			inword = 0;
 		}
+
+		buffer++;
 	}
 
 	hamlet->number = words_ct;
